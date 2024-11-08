@@ -7,17 +7,19 @@ pipeline {
         sh './run_build_script.sh'
       }
     }
-   stage('Test') {
-     parallel {
-       stage('Test On Windows') {
-         steps {
-           echo "Running tests on Windows"
-         }
-       }
-       stage('Test On Linux') {
-         steps {
-           echo "Running tests on Linux"
-         }
-       }
-     }
-   }
+    stage('Test') {
+      parallel {
+        stage('Test On Windows') {
+          steps {
+            echo "Running tests on Windows"
+          }
+        }
+        stage('Test On Linux') {
+          steps {
+            echo "Running tests on Linux"
+          }
+        }
+      }
+    }
+  }
+}
