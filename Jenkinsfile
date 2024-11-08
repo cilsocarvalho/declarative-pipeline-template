@@ -25,7 +25,13 @@ pipeline {
               input(message: 'Okay to Deploy?', ok: 'Let\'s Do it!')
             }
           }
-        }
+          stage('Confirm Deploy to production') {
+     steps {
+       timeout(time: 60, unit: 'SECONDS') {
+         input(message: 'Okay to Deploy?', ok: 'Let\'s Do it!')
+       }
+     }
+     }        
       }
     }
   }
